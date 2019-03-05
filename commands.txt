@@ -1,0 +1,23 @@
+Docker build . -t gekube:local 
+Docker image list | select -First 2 
+Docker run -d -p 5000:8080 gekube:local 
+
+Docker ps 
+Docker container rm -f containerid 
+Start microsoft-edge:http://localhost:5000 
+
+Kubectl create -f deploy.yml 
+
+
+
+============================================================
+
+
+Docker container rm -f $(docker ps -aq)       --****--- delete all containers. 
+
+Docker container rm -f containerid 
+
+Kubectl run letskube-deployment --image=letskube:local --port=80 --replicas=3 
+Kubectl expose deployment letskube-deployment --type=NodePort 
+
+Kubectl delete deployment letskube-deployment 
