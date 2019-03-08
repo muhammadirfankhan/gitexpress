@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: gekube
-        image: b:b878d9e98bcd98311e7e6727f8e692e1d2fcf166
+        image: gitexpress:3a136625b42af1a6d0af9168e506b3ee7f375c62
         imagePullPolicy: IfNotPresent
       restartPolicy: Always
   selector:

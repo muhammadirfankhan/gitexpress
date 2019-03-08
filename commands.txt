@@ -1,14 +1,14 @@
 Docker build . -t gekube:local 
 Docker image list | select -First 2 
-Docker run -d -p 5000:8080 gekube:local 
+Docker run -d -p 5000:8080 gitexpress:3a136625b42af1a6d0af9168e506b3ee7f375c62 
 
 Docker ps 
 Docker container rm -f containerid 
 Start microsoft-edge:http://localhost:5000 
 
-Kubectl create -f deploy.yml 
+Kubectl create -f deploy.yaml 
 
-
+Start microsoft-edge:http://localhost:31785 
 
 ============================================================
 
@@ -21,3 +21,17 @@ Kubectl run letskube-deployment --image=letskube:local --port=80 --replicas=3
 Kubectl expose deployment letskube-deployment --type=NodePort 
 
 Kubectl delete deployment letskube-deployment 
+
+=================================================================
+Installing dashboard
+https://github.com/kubernetes/dashboard
+https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+
+
+for getting token for dashboard
+ kubectl -n kube-system describe secret replicaset-controller-token-gwm4r
+
+ copy above token for one time
+ 
+==================================================================
+
